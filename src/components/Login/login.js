@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
+import backgroundImage from '../../assets/loginbackground.png'; 
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -15,23 +16,45 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Lógica para manejar el login
+        // Aquí puedes manejar la lógica de autenticación
         console.log('Username:', username);
         console.log('Password:', password);
     };
 
+    // Estilo en línea para el fondo
+    const backgroundStyle = {
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+    };
+
     return (
-        <form className="login-form" onSubmit={handleSubmit}>
-            <div>
-                <label>Username:</label>
-                <input type="text" value={username} onChange={handleUsernameChange} />
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" value={password} onChange={handlePasswordChange} />
-            </div>
-            <button type="submit">Login</button>
-        </form>
+        <div style={backgroundStyle}> {/* Aplica el estilo de fondo */}
+            <form className="login-form" onSubmit={handleSubmit}>
+                <div>
+                    <label>Username:</label>
+                    <input 
+                        type="text" 
+                        value={username} 
+                        onChange={handleUsernameChange} 
+                    />
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input 
+                        type="password" 
+                        value={password} 
+                        onChange={handlePasswordChange} 
+                    />
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     );
 };
 
