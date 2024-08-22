@@ -40,3 +40,12 @@
     background-color: #138496;
 }
 
+.bg {
+    height: '100vh';
+    display: 'flex';
+    justifyContent: 'center';
+    alignItems: 'center';
+    backgroundSize: 'cover';
+    backgroundPosition: 'center';
+    backgroundRepeat: 'no-repeat';
+}
