@@ -21,7 +21,20 @@ const LoginForm = () => {
         console.log('Password:', password);
     };
 
+    // Estilo en línea para el fondo
+    const backgroundStyle = {
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+    };
+
     return (
+        <div style={backgroundStyle}> {/* Aplica el estilo de fondo */}
             <form className="login-form" onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>
@@ -40,10 +53,8 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
-
-                <img src={backgroundImage} alt="Background" className="bg" />
-
-            </form>   
+            </form>
+        </div>
     );
 };
 

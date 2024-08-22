@@ -1,14 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Login from "./components/Login/login";
-import Footer from "./components/Footer/footer";
+import LoginForm from "./components/Login/LoginForm";
+import Footer from "./components/Footer/Footer";
+// import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <Login/>
-      <Footer/>
-
+      <div className="container"> {/* Container element for layout */}
+        <LoginForm />
+        {/* <Navbar /> */}
+      </div>
+      <Footer />
     </div>
   );
 }
