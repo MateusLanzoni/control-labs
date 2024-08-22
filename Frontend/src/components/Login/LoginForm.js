@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
-import backgroundImage from '../../assets/loginbackground.png'; 
+import backgroundImage from '../../assets/loginbackground.png'; // Make sure this path is correct
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -16,25 +16,16 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Aquí puedes manejar la lógica de autenticación
+        // Handle authentication logic here
         console.log('Username:', username);
         console.log('Password:', password);
     };
 
-    // Estilo en línea para el fondo
-    const backgroundStyle = {
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-    };
-
     return (
-        <div style={backgroundStyle}> {/* Aplica el estilo de fondo */}
+        <div 
+            className="login-container" 
+            style={{ backgroundImage: `url(${backgroundImage})` }}  // Set background image
+        >
             <form className="login-form" onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>

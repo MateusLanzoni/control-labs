@@ -1,94 +1,51 @@
 .navbar {
-    background: rgb(30, 30, 30);
-    height: 5rem;
-    width: 100vw;
-    max-width: 75rem;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    object-fit: cover;
-    height: 3rem;
-    width: 4rem;
-}
-
-.desktopMenuListItem {
-    margin: 1rem;
-    cursor: pointer;
-}
-
-.desktopMenuListItem:hover {
-    color: yellow;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid yellow;
-}
-
-.desktopMenuBtn{
-    background: white;
-    color: black;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-    border-radius: 1rem;
-}
-
-.desktopMenuImg {
-    object-fit: cover;
-    height: 1rem;
-    width: 1rem;
-    margin: 1rem;
-}
-
-.active{
-    color: yellow;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid yellow;
-}
-
-.mobMenu{
-    display: none;
-    object-fit: cover;
-    height: 1.8rem;
-}
-
-.navMenu{
-    position: absolute;
-    top: 4rem;
-    right: 2rem;
-    z-index: 2;
+    width: 60px;
+    height: 100vh;
+    background-color: #f2e7f2; /* Light purple background */
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
-    height: fit-content;
-    min-width: 15rem;
-    background: (40,40,40);
-    border-radius: 1rem;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.listItem{
-    color: white;
-    padding: 0.5rem 3rem;
-    margin: 0.25rem;
-    background-color: rgb(30, 30, 30);
+.navbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-@media screen and (max-width:720px) {
-    .mobMenu {
-        display: flex;
-    }
-    .desktopMenu {
-        display: none;
-    }
-    .desktopMenuBtn {
-        display: none;
-    }
+.navbar-item:hover {
+    background-color: #d3c0d3; /* Slightly darker purple on hover */
+    border-radius: 10px;
+}
+
+.navbar-item span {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.navbar-item.plus {
+    margin-top: auto; /* Move the plus icon to the bottom */
+    background-color: #ffcccc; /* Red background for the plus icon */
+    color: #000;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.navbar-item.plus:hover {
+    background-color: #ff9999; /* Darker red on hover */
 }

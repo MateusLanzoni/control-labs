@@ -1,13 +1,28 @@
-
-import React, { useState } from 'react';
-import './Navbar.css';
+import React from 'react';
+import './navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser, faCalendarAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
-  return (
-    <nav className="navbar">
-      {/* Navbar content here */}
-    </nav>
-  );
+    return (
+        <div className="navbar">
+            <div className="navbar-item">
+                <FontAwesomeIcon icon={faHome} />
+                <span>Pagina Principal</span>
+            </div>
+            <div className="navbar-item">
+                <FontAwesomeIcon icon={faUser} />
+                <span>Usuario</span>
+            </div>
+            <div className="navbar-item">
+                <FontAwesomeIcon icon={faCalendarAlt} />
+                <span>Reservas</span>
+            </div>
+            <div className="navbar-item plus">
+                <FontAwesomeIcon icon={faPlus} />
+            </div>
+        </div>
+    );
 };
 
 export default Navbar;
