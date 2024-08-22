@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './login.css';
 import backgroundImage from '../../assets/loginbackground.png'; 
 
-const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,9 +19,11 @@ const LoginForm = () => {
         // Aquí puedes manejar la lógica de autenticación
         console.log('Username:', username);
         console.log('Password:', password);
+
+        // Llama a la función de login al enviar el formulario
+        onLogin();
     };
 
-    // Estilo en línea para el fondo
     const backgroundStyle = {
         height: '100vh',
         display: 'flex',
@@ -34,7 +36,7 @@ const LoginForm = () => {
     };
 
     return (
-        <div style={backgroundStyle}> {/* Aplica el estilo de fondo */}
+        <div style={backgroundStyle}>
             <form className="login-form" onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>

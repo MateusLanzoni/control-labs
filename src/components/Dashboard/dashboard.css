@@ -1,0 +1,34 @@
+.dashboard-container {
+    padding: 20px;
+    flex: 1;
+    background-color: #f8f9fa; /* Un fondo claro para el Dashboard */
+}
+
+.dashboard-container h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.dashboard-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dashboard-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.dashboard-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.dashboard-section p {
+    font-size: 16px;
+}
