@@ -1,50 +1,97 @@
+/* Contenedor principal del calendario */
+.calendar-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Calendario */
 .calendar {
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .calendar-header button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-  }
-  
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 10px;
-  }
-  
-  .calendar-day-header {
-    font-weight: bold;
-    text-align: center;
-    padding: 5px 0;
-  }
-  
-  .calendar-day {
-    text-align: center;
-    padding: 10px 0;
-    cursor: pointer;
-  }
-  
-  .calendar-day:hover {
-    background-color: #e6f7ff;
-  }
-  
-  .calendar-day.empty {
-    background-color: #f7f7f7;
-    cursor: default;
-  }
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 320px; /* Ancho ajustado para que los días quepan */
+  background-color: #f2eaf8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: absolute; 
+  z-index: 1;
+}
+
+/* Encabezado del calendario (Mes y Año) */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #5e35b1;
+}
+
+/* Botones de navegación (Mes anterior y Mes siguiente) */
+.calendar-header button {
+  background-color: transparent;
+  color: #5e35b1;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  color: #311b92;
+}
+
+/* Días de la semana (encabezado) */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas para cada día */
+  text-align: center;
+  color: #7e57c2;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de las fechas */
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas para cada día */
+  gap: 10px; /* Espacio entre los días */
+}
+
+/* Cada día del mes */
+.calendar-date {
+  background-color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50%;
+  width: 15px;  /* Tamaño ajustado de los círculos */
+  height: 15px;
+  line-height: 15px; /* Centrado vertical del texto */
+  cursor: pointer;
+  color: #4a4a4a;
+}
+
+/* Hover en los días del mes */
+.calendar-date:hover {
+  background-color: #d1c4e9;
+}
+
+/* Días vacíos (espacios en blanco antes del inicio del mes) */
+.calendar-date.empty {
+  background-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Estilo del botón para mostrar/ocultar el calendario */
+button {
+  background-color: #5e35b1;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4527a0;
+}

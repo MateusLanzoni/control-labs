@@ -1,9 +1,14 @@
 // Calendar.js
 import React, { useState } from 'react';
-import './Calendar.css';
+import './calendar.css';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
+
+  const toggleCalendarVisibility = () => {
+    setIsCalendarVisible(!isCalendarVisible);
+  };
 
   const renderHeader = () => {
     const months = [
@@ -32,24 +37,33 @@ const Calendar = () => {
 
     // Fill in blanks before start of month
     for (let i = 0; i < startOfMonth.getDay(); i++) {
-      dates.push(<div className="calendar-day empty" key={`empty-${i}`}></div>);
+      dates.push(<div className="calendar-date empty" key={`empty-${i}`}></div>);
     }
 
-    // Fill in actual dates
+    // Fill in dates of the month
     for (let i = 1; i <= endOfMonth.getDate(); i++) {
-      dates.push(<div className="calendar-day" key={i}>{i}</div>);
+      dates.push(<div className="calendar-date" key={i}>{i}</div>);
     }
 
     return dates;
   };
 
   return (
-    <div className="calendar">
-      {renderHeader()}
-      <div className="calendar-grid">
-        {renderDays()}
-        {renderDates()}
-      </div>
+    <div className="calendar-container">
+      <button onClick={toggleCalendarVisibility}>
+        {isCalendarVisible ? 'Hide Calendar' : 'Show Calendar'}
+      </button>
+      {isCalendarVisible && (
+        <div className="calendar">
+          {renderHeader()}
+          <div className="calendar-days">
+            {renderDays()}
+          </div>
+          <div className="calendar-dates">
+            {renderDates()}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
