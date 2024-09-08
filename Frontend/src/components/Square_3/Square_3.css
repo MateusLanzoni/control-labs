@@ -18,7 +18,7 @@
     margin-bottom: 10px; /* Espacio entre el texto y el componente hijo */
     font-size: 18px;
     text-align: center;
-    color: white; /* Ajusta el color del texto según el contraste con la imagen */
+    color: rgb(0, 174, 187); /* Ajusta el color del texto según el contraste con la imagen */
   }
   
   .Calendar-component {
