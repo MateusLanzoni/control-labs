@@ -1,24 +1,19 @@
 import React from 'react';
-import './App.css';
-import LoginForm from "./components/Login/LoginForm";
-import Footer from "./components/Footer/footer";
-import Navbar from "./components/NavBar/navbar";
-import Calendar from './components/Calendar/calendar';
-import Button_T from './components/Button_T/button';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/MainPage';
 
 function App() {
   return (
-    <div className="App">
-      <div className="container"> {/* Container element for layout */}
-        <LoginForm />
-        <Calendar />
-        <Button_T />
-        <Navbar />
-        <Footer />
-
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Define routes for different pages */}
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/dashboard" element={<LoginPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
-
 export default App; 

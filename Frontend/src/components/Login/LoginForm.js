@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './login.css';
 import backgroundImage from '../../assets/loginbackground.png'; // Make sure this path is correct
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -19,7 +22,10 @@ const LoginForm = () => {
         // Handle authentication logic here
         console.log('Username:', username);
         console.log('Password:', password);
+        navigate('/main');
     };
+
+
 
     return (
         <div 
@@ -44,6 +50,7 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
+                <button onClick={handleSubmit}>Sign In</button>
             </form>
         </div>
     );
