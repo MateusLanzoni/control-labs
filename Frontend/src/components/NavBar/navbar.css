@@ -37,13 +37,12 @@
 }
 
 .navbar-item.plus {
-    margin-top: 610px; /* Move the plus icon to the bottom */
+    margin-top: 10px; /* Move the plus icon to the bottom */
     background-color: #ffcccc; /* Red background for the plus icon */
     color: #000;
     padding: 28px;
     border-radius: 50%;
-    font-size: 20px;
-    transition: background-color 0.3s;
+    font-size: 20px;   
     width: 0px;
     height: 0.001vh;
 }

@@ -5,6 +5,25 @@
   margin: 10px;
 }
 
+.calendar-button {
+  background: none; /* Elimina el fondo del botón */
+  border: none; /* Elimina el borde del botón */
+  padding: 0; /* Elimina el padding del botón */
+  cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
+  position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+}
+
+.calendar-button img {
+  width: 40px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: auto; /* Mantiene la relación de aspecto de la imagen */
+  transition: filter 0.3s ease; /* Suaviza la transición del filtro */
+}
+
+/* Efecto oscuro cuando el cursor está sobre el botón */
+.calendar-button:hover img {
+  filter: brightness(0.7); /* Ajusta el valor según el efecto deseado */
+}
+
 /* Calendario */
 .calendar {
   border: 1px solid #ddd;
@@ -34,10 +53,6 @@
   border: none;
   font-size: 18px;
   cursor: pointer;
-}
-
-.calendar-header button:hover {
-  color: #311b92;
 }
 
 /* Días de la semana (encabezado) */
