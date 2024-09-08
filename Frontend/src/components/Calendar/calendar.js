@@ -1,13 +1,19 @@
-// Calendar.js
 import React, { useState } from 'react';
 import './calendar.css';
+import DaySpecification from '../DaySpecification/dayspecification';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(null);
 
   const toggleCalendarVisibility = () => {
     setIsCalendarVisible(!isCalendarVisible);
+    setSelectedDay(null);
+  };
+
+  const handleDayClick = (day) => {
+    setSelectedDay(day);
   };
 
   const renderHeader = () => {
@@ -42,7 +48,11 @@ const Calendar = () => {
 
     // Fill in dates of the month
     for (let i = 1; i <= endOfMonth.getDate(); i++) {
-      dates.push(<div className="calendar-date" key={i}>{i}</div>);
+      dates.push(
+        <div className="calendar-date" key={i} onClick={() => handleDayClick(i)}>
+          {i}
+        </div>
+      );
     }
 
     return dates;
@@ -64,6 +74,7 @@ const Calendar = () => {
           </div>
         </div>
       )}
+      {selectedDay && <DaySpecification day={selectedDay} />}
     </div>
   );
 };

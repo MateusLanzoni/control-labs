@@ -1,8 +1,8 @@
-.Square_3 {
+.Square_0 {
     width: 500px; /* Tamaño del cuadrado */
     height: 250px; /* Tamaño del cuadrado */
     border-radius: 20px; /* Bordes circulares (la mitad del tamaño del cuadrado) */
-    background-image: url('../../assets/Lab.jpg'); /* Ruta a tu imagen PNG de fondo */
+    background-image: url('../../assets/Lab2.jpg'); /* Ruta a tu imagen PNG de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el cuadrado */
     background-position: center; /* Centra la imagen en el cuadrado */
     background-repeat: no-repeat; /* Evita que la imagen se repita */

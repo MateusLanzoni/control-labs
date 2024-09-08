@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 //import Calendar from '../Calendar/calendar';
-import Footer from '../Footer/footer';
-import './button.css';
+import Square_0 from '../Square_0/Square_0';
 import Square_3 from '../Square_3/Square_3';
+import './button.css';
 
 const Button_T = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -16,7 +16,7 @@ const Button_T = () => {
       {isToggled ? (
         <Square_3 /> // Renderiza el primer componente
       ) : (
-        <Footer /> // Renderiza el segundo componente
+        <Square_0 /> // Renderiza el segundo componente
       )}
       <button onClick={toggleState}>
         {isToggled ? 'Show First Component' : 'Show Second Component'}
