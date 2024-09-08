@@ -22,7 +22,7 @@ const LoginForm = () => {
         // Handle authentication logic here
         console.log('Username:', username);
         console.log('Password:', password);
-        navigate('/main');
+        navigate('/TestPage');
     };
 
 
