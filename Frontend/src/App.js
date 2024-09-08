@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/MainPage';
+import MainPage from './pages/MainPage';
+import TestPage from './pages/testPage';
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <div className="App">
         <Routes>
           {/* Define routes for different pages */}
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/dashboard" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} /> //https.controllasbs.com
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/testpage" element={<TestPage/>} />
         </Routes>
       </div>
     </Router>
