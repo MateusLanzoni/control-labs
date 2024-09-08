@@ -1,19 +1,18 @@
 /* button.css */
-button {
-  background-color: #007bff;
-  color: white;
+button { 
+  background-color: white;
+  color: none;
   border: none;
-  padding: 10px 20px;
   cursor: pointer;
   border-radius: 4px;
   margin: 10px 0;
+  scale: 1;
 
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: white;
 }
-
 div {
-  margin: 10px 0;
+  margin: 5px 0;
 }
