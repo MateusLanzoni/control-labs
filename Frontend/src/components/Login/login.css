@@ -11,7 +11,7 @@
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 350px;
     padding: 30px;
     background-color: white; /* Background color of the form */
     border-radius: 10px;

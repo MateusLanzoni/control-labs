@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './calendar.css';
 import DaySpecification from '../DaySpecification/dayspecification';
+import calendarIcon from '../../assets/calendar.png'; // Ruta a tu imagen
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -60,8 +61,8 @@ const Calendar = () => {
 
   return (
     <div className="calendar-container">
-      <button onClick={toggleCalendarVisibility}>
-        {isCalendarVisible ? 'Hide Calendar' : 'Show Calendar'}
+      <button onClick={toggleCalendarVisibility} className="calendar-button">
+        <img src={calendarIcon} alt="Show Calendar" />
       </button>
       {isCalendarVisible && (
         <div className="calendar">

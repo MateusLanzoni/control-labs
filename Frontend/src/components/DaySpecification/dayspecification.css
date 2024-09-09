@@ -1,9 +1,11 @@
 /* AdditionalComponent.css */
 .day-Specification {
     position: absolute;
+    z-index: 1000;
     left: 400px;
     margin-top: 20px;
     padding: 10px;
     background-color: #f0f0f0;
     border-radius: 5px;
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra hacia afuera */
   }

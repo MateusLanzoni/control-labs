@@ -1,18 +1,21 @@
 import React from 'react';
-import Navbar from '../components/NavBar/navbar';
+import Footer from "../components/Footer/footer";
+import Navbar from "../components/NavBar/navbar";
 import Calendar from '../components/Calendar/calendar';
 import Button_T from '../components/Button_T/button';
-import Footer from '../components/Footer/footer';
 
 function TestPage() {
   return (
-    <div className="main-container">
-      <Navbar />
-      <Calendar />
-      <Button_T />
-      <Footer />
+    <div className="App">
+      <div className="container"> {/* Container element for layout */}
+        <Calendar />
+        <Button_T />
+        <Navbar />
+        <Footer />
+
+      </div>
     </div>
   );
 }
 
-export default TestPage;
+export default TestPage; 
