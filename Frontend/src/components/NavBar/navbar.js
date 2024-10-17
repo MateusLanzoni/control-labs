@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="navbar">
             <div className="navbar-item plus">
                 <FontAwesomeIcon icon={faPlus} />
-            </div>            
+            </div>
             <div className="navbar-item">
                 <FontAwesomeIcon icon={faHome} />
                 <span>Pagina Principal</span>
