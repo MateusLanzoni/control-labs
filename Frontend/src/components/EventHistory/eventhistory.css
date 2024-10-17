@@ -1,0 +1,34 @@
+.event-history {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .event-history h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .event-history ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .event-history li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .event-history li:last-child {
+    border-bottom: none;
+  }
+  
+  .event-history li:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+
+  

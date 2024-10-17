@@ -3,7 +3,7 @@ import Navbar from '../components/NavBar/navbar';
 import Footer from '../components/Footer/footer';
 import UserProfile from '../components/UserProfile/userprofile';
 import EventHistory from '../components/EventHistory/eventhistory';
-import './UserInfoPage.css';  // You can define any specific styles here
+import '../pagesCss/UserInfoPage.css'; // Specific styles for this page
 
 const UserInfoPage = () => {
   return (
