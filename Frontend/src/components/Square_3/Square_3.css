@@ -1,27 +1,28 @@
 .Square_3 {
-    width: 500px; /* Tamaño del cuadrado */
-    height: 250px; /* Tamaño del cuadrado */
-    border-radius: 20px; /* Bordes circulares (la mitad del tamaño del cuadrado) */
-    background-image: url('../../assets/Lab.jpg'); /* Ruta a tu imagen PNG de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el cuadrado */
-    background-position: center; /* Centra la imagen en el cuadrado */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 90%;
+    height: 250px;
+    border-radius: 20px; 
+    background-image: url('../../assets/Lab.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid #ccc; /* Borde del cuadrado */
+    border: 2px solid #ccc;
     position: relative;
+    margin-bottom: 20px;
   }
   
   .text {
-    margin-bottom: 10px; /* Espacio entre el texto y el componente hijo */
+    margin-bottom: 10px;
     font-size: 18px;
     text-align: center;
-    color: rgb(0, 174, 187); /* Ajusta el color del texto según el contraste con la imagen */
+    color: rgb(0, 174, 187);
   }
   
   .Calendar-component {
     position: absolute;
-    bottom: 10px; /* Espacio desde el borde inferior del cuadrado */
+    bottom: 10px;
   }

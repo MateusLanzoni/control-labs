@@ -1,0 +1,62 @@
+/* styles.css */
+
+.event-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .event-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .event-details {
+    flex-grow: 1;
+    padding-left: 16px;
+  }
+  
+  .event-details h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .event-details p {
+    margin: 4px 0;
+    color: #555;
+  }
+  
+  .event-date {
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .event-button {
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-button .calendar-icon {
+    margin-right: 8px;
+  }
+  
+  .event-button button {
+    padding: 8px 16px;
+    background-color: #eae4f8;
+    color: #5c48d3;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .event-button button:hover {
+    background-color: #5c48d3;
+    color: white;
+  }
+  
