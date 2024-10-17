@@ -4,6 +4,7 @@ import Navbar from "../components/NavBar/navbar";
 import Calendar from '../components/Calendar/calendar';
 import Button_T from '../components/Button_T/button';
 import EventCard from '../components/EventCard/eventcard';
+import '..'
 
 function TestPage() {
   return (
@@ -12,8 +13,6 @@ function TestPage() {
         <Calendar />
         <Button_T />
         <Navbar />
-        <Footer />
-
         <EventCard
         image= "../assets/close.png"
         title="Campamento de programación"
@@ -27,6 +26,7 @@ function TestPage() {
         description="Aprende a proteger tus datos"
         date="21/08 | 1pm - 3pm"
         />
+        <Footer />
       </div>
     </div>
   );

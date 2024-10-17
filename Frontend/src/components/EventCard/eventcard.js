@@ -1,16 +1,8 @@
 import React from "react";
 import './eventcard.css'; // Asegúrate de importar tu archivo de estilos
-import '../Calendar/calendar'
-import Calendar from "../Calendar/calendar";
+import Calendar from "../Calendar/calendar"; // Importa el componente Calendar
 
-interface EventCardProps {
-  image: string;
-  title: string;
-  description: string;
-  date: string;
-}
-
-const EventCard: React.FC<EventCardProps> = ({ image, title, description, date }) => {
+const EventCard = ({ image, title, description, date }) => {
   return (
     <div className="event-card">
       {/* Imagen del evento */}
