@@ -14,7 +14,7 @@ export class ReservationService {
 
   // Method to create a new reservation
   async create(createReservationDto: CreateReservationDto): Promise<Reservation> {
-    const reservation = this.reservationRepository.create(createReservationDto);
+    const reservation = this.reservationRepository.create(CreateReservationDto);
     return this.reservationRepository.save(reservation);
   }
 
