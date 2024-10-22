@@ -18,7 +18,21 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-        "@auth/*": ["auth/*"] 
+      "@auth/*": ["auth/*"],
+      "@reservation/*": ["reservation/*"],  // Example for another module
+      "@config/*": ["config/*"]             // Example for config-related imports
     }
+  },
+  "include": [
+    "src/**/*.ts",         // Include all TypeScript files in src
+    "migrations/**/*.ts"   // Ensure migrations are included for compilation
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "ts-node": {
+    "files": true,        // Enable ts-node to load files correctly
+    "transpileOnly": true // Speed up transpilation during migration or development
   }
 }
