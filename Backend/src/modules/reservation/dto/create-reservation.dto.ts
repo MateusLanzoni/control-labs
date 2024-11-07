@@ -1,17 +1,7 @@
 import { IsString, IsDate, IsNotEmpty } from 'class-validator';
 
 export class CreateReservationDto {
-  @IsString()
-  @IsNotEmpty()
-  readonly description: string;
-
-  @IsDate()
-  @IsNotEmpty()
-  readonly date: Date;
-
-  @IsString()
-  @IsNotEmpty()
-  readonly timeSlot: string;
-
-  // Add other fields as needed with appropriate validation decorators
+  date: Date;           // Type matches the `Reservation` entity's `date` field
+  timeSlot: string;      // Type matches the `Reservation` entity's `timeSlot` field
+  status?: string;       // Optional field for status
 }

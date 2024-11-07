@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Reservation } from './reservation.entity';
@@ -9,33 +9,40 @@ import { UpdateReservationDto } from './dto/update-reservation.dto';
 export class ReservationService {
   constructor(
     @InjectRepository(Reservation)
-    private readonly reservationRepository: Repository<Reservation>,
+    private reservationRepository: Repository<Reservation>,
   ) {}
 
-  // Method to create a new reservation
+  // Create a new reservation
   async create(createReservationDto: CreateReservationDto): Promise<Reservation> {
-    const reservation = this.reservationRepository.create(CreateReservationDto);
+    const reservation = this.reservationRepository.create(createReservationDto);
     return this.reservationRepository.save(reservation);
   }
 
-  // Method to find all reservations
+  // Find all reservations
   async findAll(): Promise<Reservation[]> {
     return this.reservationRepository.find();
   }
 
-  // Method to find a reservation by ID
+  // Find a single reservation by ID
   async findOne(id: number): Promise<Reservation> {
-    return this.reservationRepository.findOne({ where: { id } });
+    const reservation = await this.reservationRepository.findOne({ where: { id } });
+    if (!reservation) {
+      throw new NotFoundException(`Reservation with ID ${id} not found`);
+    }
+    return reservation;
   }
 
-  // Method to update a reservation
+  // Update a reservation
   async update(id: number, updateReservationDto: UpdateReservationDto): Promise<Reservation> {
     await this.reservationRepository.update(id, updateReservationDto);
-    return this.findOne(id);
+    return this.findOne(id); // Return the updated reservation
   }
 
-  // Method to remove a reservation
+  // Remove a reservation
   async remove(id: number): Promise<void> {
-    await this.reservationRepository.delete(id);
+    const result = await this.reservationRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Reservation with ID ${id} not found`);
+    }
   }
 }
