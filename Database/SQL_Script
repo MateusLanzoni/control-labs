@@ -1,46 +1,123 @@
+-- Crear tipo enumerado para el estado de las reservas
+CREATE TYPE reservation_status AS ENUM ('pending', 'confirmed', 'canceled');
+
+-- Crear tabla de usuarios
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    role ENUM('student', 'professor', 'admin') DEFAULT 'student',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Crear tabla de roles
+CREATE TABLE roles (
+    id SERIAL PRIMARY KEY,
+    role_name VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- Tabla intermedia para asignar roles a los usuarios
+CREATE TABLE user_roles (
+    user_id INT NOT NULL,
+    role_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, role_id)
+);
+
+-- Crear tabla de permisos
+CREATE TABLE permissions (
+    id SERIAL PRIMARY KEY,
+    permission_name VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Tabla intermedia para relacionar roles con permisos
+CREATE TABLE role_permissions (
+    role_id INT NOT NULL,
+    permission_id INT NOT NULL,
+    FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE,
+    FOREIGN KEY (permission_id) REFERENCES permissions(id) ON DELETE CASCADE,
+    PRIMARY KEY (role_id, permission_id)
+);
+
+-- Crear tabla de laboratorios
 CREATE TABLE labs (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     location VARCHAR(100) NOT NULL,
     capacity INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Crear tabla de reservas
 CREATE TABLE reservations (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
     lab_id INT NOT NULL,
     date DATE NOT NULL,
     start_time TIME NOT NULL,
     end_time TIME NOT NULL,
-    status ENUM('pending', 'confirmed', 'canceled') DEFAULT 'pending',
+    status reservation_status DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (lab_id) REFERENCES labs(id) ON DELETE CASCADE
 );
+
+-- Crear tabla de eventos
 CREATE TABLE events (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     reservation_id INT NOT NULL,
     title VARCHAR(100) NOT NULL,
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (reservation_id) REFERENCES reservations(id) ON DELETE CASCADE
 );
-CREATE TABLE roles (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    role_name VARCHAR(50) UNIQUE NOT NULL
-);
 
-CREATE TABLE user_roles (
-    user_id INT NOT NULL,
-    role_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE
-);
+----------------------------------- Insertar Datos ------------------------------------------------------------------
+
+INSERT INTO roles (role_name) VALUES
+('student'),
+('professor'),
+('admin');
+
+INSERT INTO permissions (permission_name) VALUES
+('create_reservation'),
+('view_reservation'),
+('update_reservation'),
+('delete_reservation'),
+('manage_labs');
+
+INSERT INTO users (username, email, password) VALUES
+('jdoe', 'jdoe@example.com', 'hashed_password_1'),
+('asmith', 'asmith@example.com', 'hashed_password_2'),
+('mgarcia', 'mgarcia@example.com', 'hashed_password_3');
+
+INSERT INTO user_roles (user_id, role_id) VALUES
+(1, 1),  -- Assign 'student' role to user with ID 1
+(2, 2),  -- Assign 'professor' role to user with ID 2
+(3, 3);  -- Assign 'admin' role to user with ID 3
+
+INSERT INTO role_permissions (role_id, permission_id) VALUES
+(1, 2),  -- Allow 'student' role to view reservations
+(2, 1),  -- Allow 'professor' role to create reservations
+(2, 2),  -- Allow 'professor' role to view reservations
+(3, 1),  -- Allow 'admin' role to create reservations
+(3, 2),  -- Allow 'admin' role to view reservations
+(3, 3),  -- Allow 'admin' role to update reservations
+(3, 4),  -- Allow 'admin' role to delete reservations
+(3, 5);  -- Allow 'admin' role to manage labs
+
+INSERT INTO labs (name, location, capacity) VALUES
+('Computer Lab A', '3rd Floor, Room 301', 30),
+('Electronics Lab', '1st Floor, Room 105', 20),
+('Chemistry Lab', '2nd Floor, Room 202', 25);
+
+INSERT INTO reservations (user_id, lab_id, date, start_time, end_time, status) VALUES
+(1, 1, '2024-12-01', '09:00', '11:00', 'confirmed'),
+(2, 2, '2024-12-01', '13:00', '15:00', 'pending'),
+(3, 1, '2024-12-02', '10:00', '12:00', 'canceled');
+
+INSERT INTO events (reservation_id, title, description) VALUES
+(1, 'Programming Bootcamp', 'An event where students will learn programming basics'),
+(2, 'Cybersecurity Seminar', 'Learn how to protect your data from cyber threats');
+
