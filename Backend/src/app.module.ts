@@ -15,7 +15,7 @@ import { Reservation } from './modules/reservation/reservation.entity'; // Ensur
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        type: 'mysql',
+        type: 'postgres',
         host: configService.get<string>('DB_HOST'),
         port: parseInt(configService.get<string>('DB_PORT'), 10),
         username: configService.get<string>('DB_USERNAME'),
