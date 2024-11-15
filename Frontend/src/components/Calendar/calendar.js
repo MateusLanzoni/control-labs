@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './calendar.css';
-import DaySpecification from '../DaySpecification/dayspecification';
+import './Calendar.css';
+import DaySpecification from '../DaySpecification/DaySpecification';
 import calendarIcon from '../../assets/calendar.png'; // Ruta a tu imagen
 
 const Calendar = () => {

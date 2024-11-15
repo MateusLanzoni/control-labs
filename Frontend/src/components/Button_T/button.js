@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Square_0 from '../Square_0/Square_0';
 import Square_3 from '../Square_3/Square_3';
 
-import './button.css';
+import './Button.css';
 
 const Button_T = () => {
   const [active, setActive] = useState(true);

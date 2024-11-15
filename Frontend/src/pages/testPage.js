@@ -1,9 +1,9 @@
 import React from 'react';
-import Footer from "../components/Footer/footer";
-import Navbar from "../components/NavBar/navbar";
-import Calendar from '../components/Calendar/calendar';
-import Button_T from '../components/Button_T/button';
-import EventCard from '../components/EventCard/eventcard';
+import Footer from "../components/Footer/Footer";
+import Navbar from "../components/NavBar/Navbar";
+import Calendar from '../components/Calendar/Calendar';
+import Button_T from '../components/Button_T/Button';
+import EventCard from '../components/EventCard/EventCard';
 import '..'
 
 function TestPage() {

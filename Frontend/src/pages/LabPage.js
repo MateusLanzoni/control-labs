@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/NavBar/navbar';
-import Footer from '../components/Footer/footer';
-import LabButtons from '../components/LabButtons/LabButtons';
-import DatePicker from '../components/Calendar/calendar';
-import EventsList from '../components/EventsList/EventsList';
-import './LabPage.css';
+import Navbar from '../components/NavBar/Navbar';
+import Footer from '../components/Footer/Footer';
+import LabButtons from '../components/Button_T/Button';
+import DatePicker from '../components/Calendar/Calendar';
+import EventsList from '../components/EventHistory/EventHistory';
+import '../pagesCss/LabPage.css';
 import axios from 'axios';
 
 const LabPage = () => {

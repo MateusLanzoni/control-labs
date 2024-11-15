@@ -1,6 +1,6 @@
 // AdditionalComponent.js
 import React from 'react';
-import './dayspecification.css'; // Asegúrate de ajustar la ruta según la estructura de tu proyecto
+import './DaySpecification.css'; // Asegúrate de ajustar la ruta según la estructura de tu proyecto
 
 const DaySpecification = ({ day }) => {
   return (

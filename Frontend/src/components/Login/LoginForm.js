@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import './login.css';
+import './Login.css';
 import backgroundImage from '../../assets/loginbackground.png'; // Make sure this path is correct
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
     const navigate = useNavigate();
 
     const handleUsernameChange = (e) => {

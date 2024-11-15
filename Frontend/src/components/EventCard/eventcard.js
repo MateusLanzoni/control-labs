@@ -1,6 +1,6 @@
 import React from "react";
-import './eventcard.css'; // Asegúrate de importar tu archivo de estilos
-import Calendar from "../Calendar/calendar"; // Importa el componente Calendar
+import './EventCard.css'; // Asegúrate de importar tu archivo de estilos
+import Calendar from "../Calendar/Calendar"; // Importa el componente Calendar
 
 const EventCard = ({ image, title, description, date }) => {
   return (
