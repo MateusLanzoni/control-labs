@@ -1,9 +1,10 @@
-import { Injectable, NotFoundException, Inject, forwardRef } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException, Inject, forwardRef } from '@nestjs/common';
 import { AuthService } from '../auth/auth.service'; // Import AuthService
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity/user.entity';  // Asegúrate de que esta ruta sea correcta
 import { CreateUserDto } from './dto/create-user.dto';  // Asegúrate de que esta ruta sea correcta
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -38,4 +39,27 @@ export class UserService {
     }
     return user;
   }
+
+  async register(createUserDto: CreateUserDto) {
+    const { username, email, password } = createUserDto;
+
+    // Check if the user already exists
+    const existingUser = await this.userRepository.findOne({ where: { email } });
+    if (existingUser) {
+      throw new BadRequestException('Email is already registered');
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create and save the new user
+    const newUser = this.userRepository.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    return await this.userRepository.save(newUser);
+  }
+
 }

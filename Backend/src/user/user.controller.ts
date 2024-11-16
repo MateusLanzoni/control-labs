@@ -15,8 +15,8 @@ export class UserController {
   @Post('register')
   async register(@Body() createUserDto: CreateUserDto) {
     try {
-      return await this.authService.register(createUserDto);  // Usamos el servicio AuthService para registrar
-    } catch (error) {
+      return this.userService.register(createUserDto);
+        } catch (error) {
       throw new BadRequestException('Registration failed');
     }
   }

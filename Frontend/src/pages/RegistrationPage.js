@@ -6,7 +6,6 @@ import Footer from '../components/Footer/Footer';
 const RegistrationPage = () => {
   return (
     <div className="registration-page">
-      <Navbar />
       <div className="registration-container">
         <h1>Register</h1>
         <RegistrationForm />
