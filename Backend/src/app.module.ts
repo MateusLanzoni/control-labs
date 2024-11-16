@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AuthModule } from './modules/auth/auth.module'; // Ensure this path is correct and the file exists
 import { User } from './modules/auth/user.entity';  // Ensure this path is correct
 import { ReservationModule } from './modules/reservation/reservation.module'; // Example of another module
 import { Reservation } from './modules/reservation/reservation.entity'; // Ensure this path is correct
