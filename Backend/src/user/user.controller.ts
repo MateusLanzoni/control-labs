@@ -1,30 +1,29 @@
-import { Controller, Post, Get, Body, UseGuards, Req } from '@nestjs/common';
-import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { AuthGuard } from '@nestjs/passport';
-import { Request } from 'express';
+import { Controller, Post, Body, BadRequestException } from '@nestjs/common';
+import { AuthService } from '../auth/auth.service';  // Asegúrate de que esta ruta sea correcta
+import { CreateUserDto } from './dto/create-user.dto';  // Asegúrate de que esta ruta sea correcta
+import { LoginDto } from './dto/login.dto';  // Asegúrate de que esta ruta sea correcta
 
-@Controller('users') // Base route will be /users
+@Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly authService: AuthService) {}  // Inyectamos AuthService
 
-  // Register a new user
+  // Ruta para registro de usuario
   @Post('register')
   async register(@Body() createUserDto: CreateUserDto) {
-    return this.userService.register(createUserDto);
+    try {
+      return await this.authService.register(createUserDto);  // Usamos el servicio AuthService para registrar
+    } catch (error) {
+      throw new BadRequestException('Registration failed');
+    }
   }
 
-  // Login a user
+  // Ruta para login de usuario
   @Post('login')
-  async login(@Body() loginDto: { email: string; password: string }) {
-    return this.userService.login(loginDto);
-  }
-
-  // Get current user details (protected route)
-  @UseGuards(AuthGuard('jwt')) // Only accessible with a valid JWT
-  @Get('me')
-  async getCurrentUser(@Req() request: Request) {
-    const user = request.user;
-    return this.userService.findById(user['id']);
+  async login(@Body() loginDto: LoginDto) {
+    try {
+      return await this.authService.login(loginDto);  // Usamos el servicio AuthService para el login
+    } catch (error) {
+      throw new BadRequestException('Login failed');
+    }
   }
 }
