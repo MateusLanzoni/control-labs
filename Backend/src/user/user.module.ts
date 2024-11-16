@@ -1,22 +1,22 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user.entity/user.entity';
-import { UserService } from './user.service';
-import { UserController } from './user.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
+import { UserController } from './user.controller';
+import { UserService } from './user.service';
+import { User } from './user.entity/user.entity';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
-    PassportModule,
     JwtModule.register({
-      secret: 'your_jwt_secret', // Replace with your environment variable
+      secret: process.env.JWT_SECRET || '2b8e70c7d43af1c901b6a8fbc5bb6941dabb3f3554f2fb89abdcce8e72bc0983', // Fallback for local development
       signOptions: { expiresIn: '1h' },
     }),
   ],
-  providers: [UserService],
   controllers: [UserController],
-  exports: [UserService],
+  providers: [UserService],
 })
 export class UserModule {}
