@@ -19,14 +19,16 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Replace the following with actual login logic/API call
       console.log('Logging in with:', { username, password });
-      // Simulate successful login
       localStorage.setItem('authToken', 'mocked-jwt-token'); // Simulating token storage
       navigate('/main');
     } catch (err) {
       setError('Invalid username or password'); // Handle login error
     }
+  };
+
+  const handleCreateUser = () => {
+    navigate('/register'); // Redirect to the "Create User" page
   };
 
   return (
@@ -56,6 +58,9 @@ const LoginForm = () => {
         </div>
         <button type="submit" className="login-button">Login</button>
       </form>
+      <button className="create-user-button" onClick={handleCreateUser}>
+        Create User
+      </button>
     </div>
   );
 };

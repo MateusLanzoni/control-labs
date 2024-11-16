@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InputField from '../InputField/InputField'; // Reusable input field component
-import Button_T from '../ButtonT/ButtonT'; // Reusable button component
+import Button_T from '../ButtonT/Button'; // Reusable button component
 import './RegistrationForm.css';
 
 const RegistrationForm = () => {

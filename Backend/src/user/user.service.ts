@@ -1,4 +1,5 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Inject, forwardRef } from '@nestjs/common';
+import { AuthService } from '../auth/auth.service'; // Import AuthService
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity/user.entity';  // Asegúrate de que esta ruta sea correcta
@@ -7,7 +8,10 @@ import { CreateUserDto } from './dto/create-user.dto';  // Asegúrate de que est
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User) private readonly userRepository: Repository<User>,  // Inyectamos el repositorio de usuarios
+    @Inject(forwardRef(() => AuthService))
+    private readonly authService: AuthService,
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
   ) {}
 
   // Buscar un usuario por nombre de usuario
