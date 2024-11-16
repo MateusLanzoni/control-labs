@@ -1,8 +1,8 @@
 import React from 'react';
 import Footer from "../components/Footer/Footer";
-import Navbar from "../components/NavBar/Navbar";
+import Navbar from "../components/NavBar/NavBar";
 import Calendar from '../components/Calendar/Calendar';
-import Button_T from '../components/Button_T/Button';
+import Button_T from '../components/ButtonT/Button';
 import EventCard from '../components/EventCard/EventCard';
 import '..'
 

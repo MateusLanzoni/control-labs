@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/NavBar/Navbar';
+import Navbar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
-import LabButtons from '../components/Button_T/Button';
+import LabButtons from '../components/ButtonT/Button';
 import DatePicker from '../components/Calendar/Calendar';
 import EventsList from '../components/EventHistory/EventHistory';
 import '../pagesCss/LabPage.css';
