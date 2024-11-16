@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './UserProfile.css';  // Styling specific to UserProfile
 
+const handleLogout = () => {
+  localStorage.removeItem('authToken'); // Clear the JWT token
+  navigate('/'); // Redirect to login page
+};
+
 const UserProfile = () => {
   const [userInfo, setUserInfo] = useState({});
 
@@ -20,7 +25,7 @@ const UserProfile = () => {
       />
       <h2>{`Usuario #${userInfo.id} ${userInfo.name}`}</h2>
       <p>{userInfo.email}</p>
-      <button className="logout-button">Log Out</button>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };

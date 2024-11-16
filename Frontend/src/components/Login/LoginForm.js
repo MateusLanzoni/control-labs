@@ -1,58 +1,63 @@
 import React, { useState } from 'react';
-import './Login.css';
-import backgroundImage from '../../assets/loginbackground.png'; // Make sure this path is correct
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 const LoginForm = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
-    };
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle authentication logic here
-        console.log('Username:', username);
-        console.log('Password:', password);
-        navigate('/main');
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Replace the following with actual login logic/API call
+      console.log('Logging in with:', { username, password });
+      // Simulate successful login
+      localStorage.setItem('authToken', 'mocked-jwt-token'); // Simulating token storage
+      navigate('/main');
+    } catch (err) {
+      setError('Invalid username or password'); // Handle login error
+    }
+  };
 
-
-
-    return (
-        <div 
-            className="login-container" 
-            style={{ backgroundImage: `url(${backgroundImage})` }}  // Set background image
-        >
-            <form className="login-form" onSubmit={handleSubmit}>
-                <div>
-                    <label>Username:</label>
-                    <input 
-                        type="text" 
-                        value={username} 
-                        onChange={handleUsernameChange} 
-                    />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input 
-                        type="password" 
-                        value={password} 
-                        onChange={handlePasswordChange} 
-                    />
-                </div>
-                <button type="submit">Login</button>
-                <button onClick={handleSubmit}>Sign In</button>
-            </form>
+  return (
+    <div className="login-form">
+      <h2>Login</h2>
+      {error && <p className="error-message">{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username:</label>
+          <input
+            id="username"
+            type="text"
+            value={username}
+            onChange={handleUsernameChange}
+            placeholder="Enter your username"
+          />
         </div>
-    );
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Enter your password"
+          />
+        </div>
+        <button type="submit" className="login-button">Login</button>
+      </form>
+    </div>
+  );
 };
 
 export default LoginForm;

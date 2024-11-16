@@ -7,20 +7,66 @@ import CreateEventPage from './pages/CreateEventPage';
 import LabPage from './pages/LabPage.js';
 import UserInfoPage from './pages/UserInfoPage';
 import ReservationPage from './pages/ReservationPage';
+import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
+import RegistrationPage from './pages/RegistrationPage';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          {/* Define routes for different pages */}
+          {/* Public routes */}
           <Route path="/" element={<LoginPage />} /> {/* Default route for login */}
-          <Route path="/main" element={<MainPage />} /> {/* Main dashboard page */}
-          <Route path="/testpage" element={<TestPage />} /> {/* Test page */}
-          <Route path="/create-event" element={<CreateEventPage />} /> {/* Page to create events */}
-          <Route path="/lab" element={<LabPage />} /> {/* Lab information page */}
-          <Route path="/user-info" element={<UserInfoPage />} /> {/* User info page */}
-          <Route path="/reservations" element={<ReservationPage />} /> {/* Reservations page */}  
+          <Route path="/register" element={<RegistrationPage />} /> {/* Default route for login */}
+          {/* Protected routes */}
+          <Route
+            path="/main"
+            element={
+              <ProtectedRoute>
+                <MainPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/testpage"
+            element={
+              <ProtectedRoute>
+                <TestPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/create-event"
+            element={
+              <ProtectedRoute>
+                <CreateEventPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/lab"
+            element={
+              <ProtectedRoute>
+                <LabPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user-info"
+            element={
+              <ProtectedRoute>
+                <UserInfoPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reservations"
+            element={
+              <ProtectedRoute>
+                <ReservationPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </div>
     </Router>
