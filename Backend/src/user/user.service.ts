@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, BadRequestException, Inject, forwardRef } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException, Inject, forwardRef, Post } from '@nestjs/common';
 import { AuthService } from '../auth/auth.service'; // Import AuthService
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -14,6 +14,10 @@ export class UserService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) {}
+  @Post('login')  
+    oe(){
+    return 'Hola';
+  }
 
   // Buscar un usuario por nombre de usuario
   async findByUsername(username: string): Promise<User | undefined> {
