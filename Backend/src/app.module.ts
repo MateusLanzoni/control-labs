@@ -5,6 +5,8 @@ import { AuthModule } from './modules/auth/auth.module'; // Ensure this path is 
 import { User } from './modules/auth/user.entity';  // Ensure this path is correct
 import { ReservationModule } from './modules/reservation/reservation.module'; // Example of another module
 import { Reservation } from './modules/reservation/reservation.entity'; // Ensure this path is correct
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -38,7 +40,8 @@ import { Reservation } from './modules/reservation/reservation.entity'; // Ensur
       }),
     }),
     AuthModule,
-    ReservationModule,  // Example of another module you might have
+    ReservationModule,
+    UserModule,  // Example of another module you might have
   ],
 })
 export class AppModule {}
