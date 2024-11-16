@@ -6,6 +6,7 @@ import TestPage from './pages/testPage';
 import CreateEventPage from './pages/CreateEventPage';
 import LabPage from './pages/LabPage.js';
 import UserInfoPage from './pages/UserInfoPage';
+import ReservationPage from './pages/ReservationPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/create-event" element={<CreateEventPage />} /> {/* Page to create events */}
           <Route path="/lab" element={<LabPage />} /> {/* Lab information page */}
           <Route path="/user-info" element={<UserInfoPage />} /> {/* User info page */}
+          <Route path="/reservations" element={<ReservationPage />} /> {/* Reservations page */}  
         </Routes>
       </div>
     </Router>
