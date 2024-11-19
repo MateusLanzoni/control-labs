@@ -14,7 +14,8 @@ export class UserService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) {}
-  @Post('login')  
+
+  @Post('login') 
     oe(){
     return 'Hola';
   }
