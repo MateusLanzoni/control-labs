@@ -1,3 +1,32 @@
 .container {
-    margin-right: 80px;
+    margin-left: 80px;
   }
+
+.main-content {
+  margin-left: 0px;
+  margin-right: 80px; /* Adjust this value to match the width of your navbar */
+  padding: 40px; /* Optional: Add padding for spacing */
+}
+.navbar {
+  position: fixed; /* Make it fixed */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height */
+  width: 80px; /* Adjust width as needed */
+  background-color: #f3e6f5; /* Light purple background */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  justify-content: space-between; /* Space between profile and buttons */
+  padding: 10px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better design */
+  z-index: 0;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  z-index: 1;
+}

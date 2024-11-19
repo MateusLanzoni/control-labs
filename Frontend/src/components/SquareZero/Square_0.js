@@ -5,7 +5,7 @@ import Calendar from '../Calendar/Calendar';
 const Square_0 = () => {
   return (
     <div className="Square_0">
-      <div className="text">Laboratorio piso bajo</div>
+      <div className="text">Laboratorio Piso Bajo</div>
       <Calendar />
     </div>
   );

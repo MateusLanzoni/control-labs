@@ -1,52 +1,52 @@
 .navbar {
-    width: 60px;
-    height: 100vh;
-    background-color: #f2e7f2; /* Light purple background */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    position: fixed;
-    right: 0;
+    position: fixed; /* Make it fixed */
     top: 0;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-item {
+    left: 0;
+    height: 100vh; /* Full height */
+    width: 80px; /* Adjust width as needed */
+    background-color: #f3e6f5; /* Light purple background */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: space-between; /* Space between profile and buttons */
+    padding: 10px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better design */
+  }
+  
+  .navbar-item {
+    margin: 20px 0;
+    color: #6a1b9a; /* Purple color for icons */
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .navbar-item span {
+    font-size: 12px;
+    color: #6a1b9a;
+  }
+  
+  .navbar-item:hover {
+    color: #4a148c; /* Darker purple on hover */
+  }
+  
+  .navbar-item.plus {
+    margin-bottom: auto; /* Push to the top */
+  }
+  
+  .profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 30px;
-    color: #000;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.navbar-item:hover {
-    background-color: #d3c0d3; /* Slightly darker purple on hover */
-    border-radius: 10px;
-}
-
-.navbar-item span {
-    margin-top: 5px;
-    font-size: 12px;
-}
-
-.navbar-item.plus {
-    margin-top: 10px; /* Move the plus icon to the bottom */
-    background-color: #ffcccc; /* Red background for the plus icon */
-    color: #000;
-    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-icon img {
+    width: 80%;
+    height: 80%;
     border-radius: 50%;
-    font-size: 20px;   
-    width: 0px;
-    height: 0.001vh;
-}
-
-.navbar-item.plus:hover {
-    background-color: #ff9999; /* Darker red on hover */
-}
+  }
